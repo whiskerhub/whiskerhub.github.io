@@ -75,8 +75,11 @@ body.dark-mode .wp-title  { color: #c0b0d8; }
     top: 8px;
     right: 12px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 8px;
     z-index: 2;
+    max-width: calc(100% - 150px);
 }
 
 .wp-btn {
@@ -126,14 +129,14 @@ body.dark-mode .wp-btn {
 }
 body.dark-mode .wp-btn:hover { border-color: rgba(207, 239, 255, 0.25); background: rgba(255, 255, 255, 0.09); }
 
-/* Sürüklenebilir yumak düğmesi */
-.wp-yarn {
+/* Sürüklenebilir oyuncak düğmeleri */
+.wp-toy {
     cursor: grab;
     touch-action: none;
 }
-.wp-yarn:active { cursor: grabbing; }
+.wp-toy:active { cursor: grabbing; }
 
-/* Sürüklerken imleci takip eden yumak */
+/* Sürüklerken imleci takip eden oyuncak */
 .wp-ghost {
     position: fixed;
     z-index: 9999;
@@ -145,9 +148,15 @@ body.dark-mode .wp-btn:hover { border-color: rgba(207, 239, 255, 0.25); backgrou
 }
 
 /* -------------------- MOBİL -------------------- */
+@media (max-width: 700px) {
+    /* Düğmeler yer kalmasın diye sadece ikon olur */
+    .wp-btn span { display: none; }
+    .wp-btn { padding: 0 11px; }
+}
+
 @media (max-width: 450px) {
     .wp-title   { top: 12px; left: 10px; font-size: 0.62rem; }
-    .wp-toolbar { top: 6px; right: 8px; gap: 6px; }
-    .wp-btn     { height: 28px; padding: 0 10px; font-size: 0.7rem; gap: 5px; }
+    .wp-toolbar { top: 6px; right: 8px; gap: 6px; max-width: calc(100% - 110px); }
+    .wp-btn     { height: 28px; padding: 0 9px; }
     .wp-btn canvas { height: 15px; }
 }
